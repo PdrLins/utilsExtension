@@ -28,6 +28,29 @@ namespace UtilExtensions
 
             return null;
         }
+        
+         public static List<Dictionary<int, List<T>>> Split<T>(this List<T> list, int? maxlength = 25)
+        {
+            var listAux = new List<T>();
+            var rList = new List<Dictionary<int, List<T>>>();
+            var seq = 1;
+            var page = 1;
+
+            foreach (var i in list)
+            {
+                listAux.Add(i);
+                if (seq == maxlength)
+                {
+                    rList.Add(new Dictionary<int, List<T>>() { { page, listAux } });
+                    listAux = new List<T>();
+                    seq = 0;
+                    page++;
+                }
+                seq++;
+            }
+
+            return rList;
+        }
 
         public static List<Dictionary<int, List<T>>> Split<T>(this IEnumerable<T> list, int? maxlength = 25)
         {
