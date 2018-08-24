@@ -1,6 +1,6 @@
-# Project Title
+# Utils Extensions for C#
 
-One Paragraph of project description goes here
+To make your life better, use the "Utils Extensions for C#" 
 
 ## Getting Started
 
